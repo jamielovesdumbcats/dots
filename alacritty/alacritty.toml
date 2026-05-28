@@ -1,0 +1,15 @@
+general.import = [
+  # uncomment the flavour you want below:
+  # "~/.config/alacritty/catppuccin-latte.toml"
+  "~/.config/alacritty/catppuccin-frappe.toml"
+  # "~/.config/alacritty/catppuccin-macchiato.toml"
+  # "~/.config/alacritty/catppuccin-mocha.toml"
+]
+
+[font]
+normal.family = "3270 Nerd Font"
+bold.family = "3270 Nerd Font"
+italic.family = "3270 Nerd Font"
+bold_italic.family = "3270 Nerd Font"
+
+size = 14
