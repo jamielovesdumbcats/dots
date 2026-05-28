@@ -182,6 +182,13 @@ install_pkg() {
     fi
 }
 
+install_gem() {
+    local name=$1 pkg=$2
+    CURRENT=$((CURRENT + 1))
+    
+    gem install "$pkg"
+}
+
 # ---------------------------------------------------------------------------
 
 [ "$EUID" -eq 0 ] && { error "Do not run as root."; exit 1; }
@@ -256,6 +263,20 @@ install_pkg "Foliate" "foliate" "sudo pacman"
 install_pkg "Blender" "blender" "sudo pacman"
 install_pkg "Labwc" "labwc" "sudo pacman"
 install_pkg "Stow" "stow" "sudo pacman"
+install_pkg "Lua Rocks" "luarocks" "sudo pacman"
+install_pkg "Cargo" "cargo" "sudo pacman"
+install_pkg "Ruby" "ruby" "sudo pacman"
+install_pkg "Composer" "composer" "sudo pacman"
+install_pkg "PHP" "php" "sudo pacman"
+install_pkg "NPM" "npm" "sudo pacman"
+install_pkg "FD" "fd" "sudo pacman"
+install_pkg "Lazy Git" "lazygit" "sudo pacman"
+install_pkg "PIP" "python-pip" "sudo pacman"
+install_pkg "FZF" "fzf" "sudo pacman"
+install_pkg "Tectonic" "tectonic" "sudo pacman"
+install_pkg "GhosTTY" "ghostty" "sudo pacman"
+
+cargo ruby composer php npm
 
 if command -v yay &>/dev/null; then
     install_pkg "Zen Browser" "zen-browser-bin" "yay"
@@ -273,6 +294,10 @@ if command -v yay &>/dev/null; then
     install_pkg "Zork 1" "zork1" "yay"
     install_pkg "Zork 2" "zork2" "yay"
     install_pkg "Zork 3" "zork3" "yay"
+    install_pkg "TreeSitter Latex" "tree-sitter-latex-git" "sudo pacman"
+    install_pkg "TreeSitter CSS" "tree-sitter-css" "sudo pacman"
+    install_pkg "TreeSitter Svelte" "tree-sitter-svelte" "sudo pacman"
+    install_pkg "Clipboard" "clipboard-bin" "sudo pacman"
 fi
 
 if is_installed "labwc"; then
@@ -291,6 +316,10 @@ if is_installed "labwc"; then
     else
         warn "PixiEditor not installed, skipping Labwc desktop entry update"
     fi
+fi
+
+if is_installed "gem"; then
+    install_gem "Neovim" "neovim"
 fi
 
 print_summary

@@ -13,6 +13,7 @@ DOTLINKS=(
   'quickshell'
   'swaylock'
   'colors.txt'
+  'nvim'
 )
 
 for link in "${DOTLINKS[@]}"
