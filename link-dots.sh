@@ -14,6 +14,7 @@ DOTLINKS=(
   'swaylock'
   'colors.txt'
   'nvim'
+  'ghostty'
 )
 
 for link in "${DOTLINKS[@]}"
