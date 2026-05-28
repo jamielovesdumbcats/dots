@@ -1,6 +1,19 @@
 #ln -s ~/dots/alacritty ~/.config/alacritty
 
-DOTLINKS=('alacritty' 'fastfetch')
+DOTLINKS=(
+  'alacritty'
+  'fastfetch'
+  'aseprite'
+  'backgrounds'
+  'fuzzel'
+  'kew'
+  'mako'
+  'niri'
+  'PixiEditor'
+  'quickshell'
+  'swaylock'
+  'colors.txt'
+)
 
 for link in "${DOTLINKS[@]}"
 do

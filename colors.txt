@@ -1,0 +1,56 @@
+Labels      Hex         RGB
+Rosewater   #f2d5cf rgb(242, 213, 207)
+Flamingo    #eebebe rgb(238, 190, 190)
+Pink        #f4b8e4 rgb(244, 184, 228)
+Mauve       #ca9ee6 rgb(202, 158, 230)
+Red         #e78284 rgb(231, 130, 132)
+Maroon      #ea999c rgb(234, 153, 156)
+Peach       #ef9f76 rgb(239, 159, 118)
+Yellow      #e5c890 rgb(229, 200, 144)
+Green       #a6d189 rgb(166, 209, 137)
+Teal        #81c8be rgb(129, 200, 190)
+Sky         #99d1db rgb(153, 209, 219)
+Sapphire    #85c1dc rgb(133, 193, 220)
+Blue        #8caaee rgb(140, 170, 238)
+Lavender    #babbf1 rgb(186, 187, 241)
+Text        #c6d0f5 rgb(198, 208, 245)
+Subtext1    #b5bfe2 rgb(181, 191, 226)
+Subtext0    #a5adce rgb(165, 173, 206)
+Overlay2    #949cbb rgb(148, 156, 187)
+Overlay1    #838ba7 rgb(131, 139, 167)
+Overlay0    #737994 rgb(115, 121, 148)
+Surface2    #626880 rgb(98, 104, 128)
+Surface1    #51576d rgb(81, 87, 109)
+Surface0    #414559 rgb(65, 69, 89)
+Base        #303446 rgb(48, 52, 70)
+Mantle      #292c3c rgb(41, 44, 60)
+Crust       #232634 rgb(35, 38, 52)
+
+
+// QML format
+property color colRosewater: "#f2d5cf"
+property color colFlamingo: "#eebebe"
+property color colPink: "#f4b8e4"
+property color colMauve: "#ca9ee6"
+property color colRed: "#e78284"
+property color colMaroon: "#ea999c"
+property color colPeach: "#ef9f76"
+property color colYellow: "#e5c890"
+property color colGreen: "#a6d189"
+property color colTeal: "#81c8be"
+property color colSky: "#99d1db"
+property color colSapphire: "#85c1dc"
+property color colBlue: "#8caaee"
+property color colLavender: "#babbf1"
+property color colText: "#c6d0f5"
+property color colSubtext1: "#b5bfe2"
+property color colSubtext0: "#a5adce"
+property color colOverlay2: "#949cbb"
+property color colOverlay1: "#838ba7"
+property color colOverlay0: "#737994"
+property color colSurface2: "#626880"
+property color colSurface1: "#51576d"
+property color colSurface0: "#414559"
+property color colBase: "#303446"
+property color colMantle: "#292c3c"
+property color colCrust: "#232634"
