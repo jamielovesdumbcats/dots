@@ -261,7 +261,7 @@ install_pkg "GST Ugly" "gst-plugins-ugly" "sudo pacman"
 install_pkg "GST LibAV" "gst-libav" "sudo pacman"
 install_pkg "Foliate" "foliate" "sudo pacman"
 install_pkg "Blender" "blender" "sudo pacman"
-#install_pkg "Labwc" "labwc" "sudo pacman"
+install_pkg "Labwc" "labwc" "sudo pacman"
 install_pkg "NPM" "npm" "sudo pacman"
 install_pkg "GhosTTY" "ghostty" "sudo pacman"
 install_pkg "Libre Office" "libreoffice-fresh" "sudo pacman"
@@ -287,6 +287,32 @@ install_pkg "Firefox" "firefox" "sudo pacman"
 #        warn "Aseprite not installed, skipping Labwc desktop entry update"
 #    fi
 #fi
+
+# Install Zen
+curl -fsSL https://github.com/zen-browser/updates-server/raw/refs/heads/main/install.sh | $SHELL
+sudo ln -s ~/.tarball-installations/zen/zen /usr/bin/zen
+
+# Install Claude
+curl -fsSL https://claude.ai/install.sh | bash
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc && source ~/.bashrc
+
+# Install Llama CPP
+curl -LsSf https://llama.app/install.sh | sh
+
+# Install aseprite
+sudo pacman -S gcc clang cmake ninja libx11 libxcursor libxi libxrandr mesa-libgl fontconfig libwebp unzip
+cd ~/
+mkdir GithubProjects
+cd GithubProjects
+git clone --recursive https://github.com/aseprite/aseprite.git
+cd aseprite
+git pull
+git submodule update --init --recursive
+cd aseprite/
+./build.sh
+ln -s ~/GithubProjects/aseprite/build/bin/aseprite ~/.local/bin/aseprite
+cd ~/dpts
+cp desktop-entries/aseprite.desktop ~/.local/share/applications
 
 print_summary
 

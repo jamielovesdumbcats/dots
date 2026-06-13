@@ -9,11 +9,9 @@ DOTLINKS=(
   'kew'
   'mako'
   'niri'
-  'PixiEditor'
   'quickshell'
   'swaylock'
   'colors.txt'
-  'nvim'
   'ghostty'
 )
 

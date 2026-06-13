@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Aseprite
+Exec=labwc -s /home/jamie/GithubProjects/aseprite/build/bin/aseprite %F
+Terminal=false # set the app to not run in a terminal
+Icon=/home/jamie/GithubProjects/aseprite/data/icons/ase128.png
+Type=Application
+Comment=Useful pixel art editor # tooltip

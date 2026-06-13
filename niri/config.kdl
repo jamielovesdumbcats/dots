@@ -437,7 +437,7 @@ binds {
     Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
     // Mod+T hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Mod+Z hotkey-overlay-title="Run an Application: zen" { spawn "zen-browser"; }
+    Mod+Z hotkey-overlay-title="Run an Application: zen" { spawn "zen"; }
     // Mod+N hotkey-overlay-title="Configure WiFi: nmtui" { spawn "alacritty" "-e" "nmtui"; }
     Mod+N hotkey-overlay-title="Configure WiFi: nmtui" { spawn "ghostty" "-e" "nmtui"; }
     // Mod+M hotkey-overlay-title="Play Music: kew" { spawn "alacritty" "-e" "kew"; }
