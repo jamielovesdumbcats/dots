@@ -210,31 +210,31 @@ else
 fi
 
 
-if ! command -v yay &>/dev/null; then
-    warn "yay not found, installing for AUR packages..."
-    sudo pacman -S --needed --noconfirm git base-devel >/dev/null 2>&1
-    tmp=$(mktemp -d)
-    trap 'rm -rf "$tmp"' EXIT
-    git clone "https://aur.archlinux.org/yay.git" "$tmp/yay" >/dev/null 2>&1
-    (cd "$tmp/yay" && makepkg -si --noconfirm >/dev/null 2>&1)
-    command -v yay &>/dev/null && success "yay ready" || { error "Failed to install yay"; exit 1; }
-fi
+#if ! command -v yay &>/dev/null; then
+#    warn "yay not found, installing for AUR packages..."
+#    sudo pacman -S --needed --noconfirm git base-devel >/dev/null 2>&1
+#    tmp=$(mktemp -d)
+#    trap 'rm -rf "$tmp"' EXIT
+#    git clone "https://aur.archlinux.org/yay.git" "$tmp/yay" >/dev/null 2>&1
+#    (cd "$tmp/yay" && makepkg -si --noconfirm >/dev/null 2>&1)
+#    command -v yay &>/dev/null && success "yay ready" || { error "Failed to install yay"; exit 1; }
+#fi
 
 echo >&3
 info "Installing $TOTAL packages"
 echo >&3
 
 install_pkg "VS Code" "code" "sudo pacman"
-install_pkg "Ollama" "ollama" "sudo pacman"
-install_pkg "OpenCode" "opencode" "sudo pacman"
-install_pkg "Ollama ROCM" "ollama-rocm" "sudo pacman"
+#install_pkg "Ollama" "ollama" "sudo pacman"
+#install_pkg "OpenCode" "opencode" "sudo pacman"
+#install_pkg "Ollama ROCM" "ollama-rocm" "sudo pacman"
 install_pkg "pnpm" "pnpm" "sudo pacman"
 install_pkg "VLC" "vlc" "sudo pacman"
 install_pkg "VLC FFMPEG Plugin" "vlc-plugin-ffmpeg" "sudo pacman"
 install_pkg "Go" "go" "sudo pacman"
 install_pkg "CMake" "cmake" "sudo pacman"
 install_pkg "Godot Engine" "godot" "sudo pacman"
-install_pkg "Neovim" "neovim" "sudo pacman"
+#install_pkg "Neovim" "neovim" "sudo pacman"
 install_pkg "fastfetch" "fastfetch" "sudo pacman"
 install_pkg "tldr" "tldr" "sudo pacman"
 install_pkg "wget" "wget" "sudo pacman"
@@ -243,7 +243,7 @@ install_pkg "btop" "btop" "sudo pacman"
 install_pkg "Obsidian" "obsidian" "sudo pacman"
 install_pkg "Mission Center" "mission-center" "sudo pacman"
 install_pkg "Alacritty" "alacritty" "sudo pacman"
-install_pkg "Emacs" "emacs" "sudo pacman"
+#install_pkg "Emacs" "emacs" "sudo pacman"
 install_pkg "qBittorrent" "qbittorrent" "sudo pacman"
 install_pkg "Discord" "discord" "sudo pacman"
 install_pkg "Quickshell" "quickshell" "sudo pacman"
@@ -261,66 +261,32 @@ install_pkg "GST Ugly" "gst-plugins-ugly" "sudo pacman"
 install_pkg "GST LibAV" "gst-libav" "sudo pacman"
 install_pkg "Foliate" "foliate" "sudo pacman"
 install_pkg "Blender" "blender" "sudo pacman"
-install_pkg "Labwc" "labwc" "sudo pacman"
-install_pkg "Stow" "stow" "sudo pacman"
-install_pkg "Lua Rocks" "luarocks" "sudo pacman"
-install_pkg "Cargo" "cargo" "sudo pacman"
-install_pkg "Ruby" "ruby" "sudo pacman"
-install_pkg "Composer" "composer" "sudo pacman"
-install_pkg "PHP" "php" "sudo pacman"
+#install_pkg "Labwc" "labwc" "sudo pacman"
 install_pkg "NPM" "npm" "sudo pacman"
-install_pkg "FD" "fd" "sudo pacman"
-install_pkg "Lazy Git" "lazygit" "sudo pacman"
-install_pkg "PIP" "python-pip" "sudo pacman"
-install_pkg "FZF" "fzf" "sudo pacman"
-install_pkg "Tectonic" "tectonic" "sudo pacman"
 install_pkg "GhosTTY" "ghostty" "sudo pacman"
+install_pkg "Libre Office" "libreoffice-fresh" "sudo pacman"
+install_pkg "Libresprite" "libresprite" "sudo pacman"
+install_pkg "Kew" "kew" "sudo pacman"
+install_pkg "Tiled" "tiled" "sudo pacman"
+install_pkg "Cool Retro Term" "cool-retro-term" "sudo pacman"
+install_pkg "Firefox" "firefox" "sudo pacman"
 
-cargo ruby composer php npm
+#if command -v yay &>/dev/null; then
+#    install_pkg "Zen Browser" "zen-browser-bin" "yay"
+#    install_pkg "LocalSend" "localsend-bin" "yay"
+#    install_pkg "Aseprite" "aseprite" "yay"
+#    install_pkg "NM TUI" "nmtui-go" "yay"
+#fi
 
-if command -v yay &>/dev/null; then
-    install_pkg "Zen Browser" "zen-browser-bin" "yay"
-    install_pkg "LocalSend" "localsend-bin" "yay"
-    install_pkg "OnlyOffice" "onlyoffice-bin" "yay"
-    install_pkg "Aseprite" "aseprite" "yay"
-    install_pkg "Pixieditor" "pixieditor-bin" "yay"
-    install_pkg "Kew" "kew-git" "yay"
-    install_pkg "Odin" "odin-git" "yay"
-    install_pkg "Drift" "drift-bin" "yay"
-    install_pkg "NM TUI" "nmtui-go" "yay"
-    install_pkg "Crush" "crush-bin" "yay"
-    install_pkg "Tiled" "tiled-git" "yay"
-    install_pkg "Cool Retro Term" "cool-retro-term-git" "yay"
-    install_pkg "Zork 1" "zork1" "yay"
-    install_pkg "Zork 2" "zork2" "yay"
-    install_pkg "Zork 3" "zork3" "yay"
-    install_pkg "TreeSitter Latex" "tree-sitter-latex-git" "sudo pacman"
-    install_pkg "TreeSitter CSS" "tree-sitter-css" "sudo pacman"
-    install_pkg "TreeSitter Svelte" "tree-sitter-svelte" "sudo pacman"
-    install_pkg "Clipboard" "clipboard-bin" "sudo pacman"
-fi
-
-if is_installed "labwc"; then
-    if is_installed "aseprite"; then
-        sudo sed -i 's/Exec=aseprite %F/Exec=labwc -s aseprite %F/' /usr/share/applications/aseprite.desktop 
-        success "Updated Aseprite desktop entry for Labwc"
-        error "Failed to update Aseprite desktop entry for Labwc"
-    else
-        warn "Aseprite not installed, skipping Labwc desktop entry update"
-    fi
-
-    if is_installed "pixieditor-bin"; then
-        sudo sed -i 's/pixieditor/labwc -s pixieditor/' /usr/share/applications/PixiEditor.desktop 
-        success "Updated PixiEditor desktop entry for Labwc"
-        error "Failed to update PixiEditor desktop entry for Labwc"
-    else
-        warn "PixiEditor not installed, skipping Labwc desktop entry update"
-    fi
-fi
-
-if is_installed "gem"; then
-    install_gem "Neovim" "neovim"
-fi
+#if is_installed "labwc"; then
+#    if is_installed "aseprite"; then
+#        sudo sed -i 's/Exec=aseprite %F/Exec=labwc -s aseprite %F/' /usr/share/applications/aseprite.desktop 
+#        success "Updated Aseprite desktop entry for Labwc"
+#        error "Failed to update Aseprite desktop entry for Labwc"
+#    else
+#        warn "Aseprite not installed, skipping Labwc desktop entry update"
+#    fi
+#fi
 
 print_summary
 
