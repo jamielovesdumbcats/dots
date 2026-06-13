@@ -270,6 +270,10 @@ install_pkg "Kew" "kew" "sudo pacman"
 install_pkg "Tiled" "tiled" "sudo pacman"
 install_pkg "Cool Retro Term" "cool-retro-term" "sudo pacman"
 install_pkg "Firefox" "firefox" "sudo pacman"
+install_pkg "Make" "make" "sudo pacman"
+install_pkg "ROCM SMI" "rocm-smi-lib" "sudo pacman"
+install_pkg "Rhythmbox" "rhythmbox" "sudo pacman"
+install_pkg "libgpos" "libgpod" "sudo pacman"
 
 #if command -v yay &>/dev/null; then
 #    install_pkg "Zen Browser" "zen-browser-bin" "yay"
@@ -295,6 +299,11 @@ sudo ln -s ~/.tarball-installations/zen/zen /usr/bin/zen
 # Install Claude
 curl -fsSL https://claude.ai/install.sh | bash
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc && source ~/.bashrc
+export ANTHROPIC_BASE_URL="http://localhost:8080"
+export ANTHROPIC_API_KEY="sk-no-key-required"
+export ANTHROPIC_AUTH_TOKEN="llama"
+# also need to copy the json
+
 
 # Install Llama CPP
 curl -LsSf https://llama.app/install.sh | sh
@@ -313,6 +322,9 @@ cd aseprite/
 ln -s ~/GithubProjects/aseprite/build/bin/aseprite ~/.local/bin/aseprite
 cd ~/dpts
 cp desktop-entries/aseprite.desktop ~/.local/share/applications
+
+# Hermes Agent
+curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 
 print_summary
 

@@ -8,11 +8,11 @@ DOTLINKS=(
   'fuzzel'
   'kew'
   'mako'
-  'niri'
   'quickshell'
   'swaylock'
   'colors.txt'
   'ghostty'
+  'btop'
 )
 
 for link in "${DOTLINKS[@]}"
