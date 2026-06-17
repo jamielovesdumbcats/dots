@@ -317,14 +317,13 @@ git clone --recursive https://github.com/aseprite/aseprite.git
 cd aseprite
 git pull
 git submodule update --init --recursive
-cd aseprite/
 ./build.sh
 ln -s ~/GithubProjects/aseprite/build/bin/aseprite ~/.local/bin/aseprite
-cd ~/dpts
+cd ~/dots
 cp desktop-entries/aseprite.desktop ~/.local/share/applications
 
 # Hermes Agent
-curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
+#curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 
 print_summary
 

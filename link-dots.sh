@@ -13,6 +13,7 @@ DOTLINKS=(
   'colors.txt'
   'ghostty'
   'btop'
+  'drift'
 )
 
 for link in "${DOTLINKS[@]}"

@@ -13,7 +13,7 @@ input {
             // For more information, see xkeyboard-config(7).
 
             // For example:
-            // layout "us,ru"
+            layout "uk"
             // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
 
             // If this section is empty, niri will fetch xkb settings
@@ -438,10 +438,9 @@ binds {
     // Mod+T hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Mod+Z hotkey-overlay-title="Run an Application: zen" { spawn "zen"; }
-    // Mod+N hotkey-overlay-title="Configure WiFi: nmtui" { spawn "alacritty" "-e" "nmtui"; }
-    Mod+N hotkey-overlay-title="Configure WiFi: nmtui" { spawn "ghostty" "-e" "nmtui"; }
     // Mod+M hotkey-overlay-title="Play Music: kew" { spawn "alacritty" "-e" "kew"; }
     Mod+M hotkey-overlay-title="Play Music: kew" { spawn "ghostty" "-e" "kew"; }
+    Mod+N hotkey-overlay-title="nmtui-go" { spawn "ghostty" "-e" "iwctl"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.

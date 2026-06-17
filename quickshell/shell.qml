@@ -64,6 +64,7 @@ PanelWindow {
         Component.onCompleted: running = true
     }
 
+
     Process {
         id: memProc
         command: ["sh", "-c", "free -g"]
