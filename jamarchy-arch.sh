@@ -279,7 +279,7 @@ install_pkg "Rust" "rustup" "sudo pacman"
 if command -v yay &>/dev/null; then
    install_pkg "LocalSend" "localsend-bin" "yay"
    install_pkg "LMStudio" "lmstudio-bin" "yay"
-   install_pkg "NM TUI" "nmtui-go" "yay"
+#    install_pkg "NM TUI" "nmtui-go" "yay"
    install_pkg "Aseprite" "aseprite" "yay"
    install_pkg "Zen" "zen-browser-bin" "yay"
 fi
