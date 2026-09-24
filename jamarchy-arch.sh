@@ -274,6 +274,7 @@ install_pkg "Make" "make" "sudo pacman"
 install_pkg "ROCM SMI" "rocm-smi-lib" "sudo pacman"
 install_pkg "Rhythmbox" "rhythmbox" "sudo pacman"
 install_pkg "libgpos" "libgpod" "sudo pacman"
+install_pkg "Rust" "rustup" "sudo pacman"
 
 if command -v yay &>/dev/null; then
    install_pkg "LocalSend" "localsend-bin" "yay"
@@ -294,8 +295,11 @@ if is_installed "labwc"; then
 fi
 
 # Install Zen
-curl -fsSL https://github.com/zen-browser/updates-server/raw/refs/heads/main/install.sh | $SHELL
-sudo ln -s ~/.tarball-installations/zen/zen /usr/bin/zen
+# curl -fsSL https://github.com/zen-browser/updates-server/raw/refs/heads/main/install.sh | $SHELL
+# sudo ln -s ~/.tarball-installations/zen/zen /usr/bin/zen
+
+# pull rust stable version
+rustup default stable
 
 # Install Claude
 # curl -fsSL https://claude.ai/install.sh | bash
