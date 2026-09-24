@@ -210,15 +210,15 @@ else
 fi
 
 
-#if ! command -v yay &>/dev/null; then
-#    warn "yay not found, installing for AUR packages..."
-#    sudo pacman -S --needed --noconfirm git base-devel >/dev/null 2>&1
-#    tmp=$(mktemp -d)
-#    trap 'rm -rf "$tmp"' EXIT
-#    git clone "https://aur.archlinux.org/yay.git" "$tmp/yay" >/dev/null 2>&1
-#    (cd "$tmp/yay" && makepkg -si --noconfirm >/dev/null 2>&1)
-#    command -v yay &>/dev/null && success "yay ready" || { error "Failed to install yay"; exit 1; }
-#fi
+if ! command -v yay &>/dev/null; then
+   warn "yay not found, installing for AUR packages..."
+   sudo pacman -S --needed --noconfirm git base-devel >/dev/null 2>&1
+   tmp=$(mktemp -d)
+   trap 'rm -rf "$tmp"' EXIT
+   git clone "https://aur.archlinux.org/yay.git" "$tmp/yay" >/dev/null 2>&1
+   (cd "$tmp/yay" && makepkg -si --noconfirm >/dev/null 2>&1)
+   command -v yay &>/dev/null && success "yay ready" || { error "Failed to install yay"; exit 1; }
+fi
 
 echo >&3
 info "Installing $TOTAL packages"
@@ -226,7 +226,7 @@ echo >&3
 
 install_pkg "VS Code" "code" "sudo pacman"
 #install_pkg "Ollama" "ollama" "sudo pacman"
-#install_pkg "OpenCode" "opencode" "sudo pacman"
+install_pkg "OpenCode" "opencode" "sudo pacman"
 #install_pkg "Ollama ROCM" "ollama-rocm" "sudo pacman"
 install_pkg "pnpm" "pnpm" "sudo pacman"
 install_pkg "VLC" "vlc" "sudo pacman"
@@ -275,52 +275,53 @@ install_pkg "ROCM SMI" "rocm-smi-lib" "sudo pacman"
 install_pkg "Rhythmbox" "rhythmbox" "sudo pacman"
 install_pkg "libgpos" "libgpod" "sudo pacman"
 
-#if command -v yay &>/dev/null; then
-#    install_pkg "Zen Browser" "zen-browser-bin" "yay"
-#    install_pkg "LocalSend" "localsend-bin" "yay"
-#    install_pkg "Aseprite" "aseprite" "yay"
-#    install_pkg "NM TUI" "nmtui-go" "yay"
-#fi
+if command -v yay &>/dev/null; then
+   install_pkg "LocalSend" "localsend-bin" "yay"
+   install_pkg "LMStudio" "lmstudio-bin" "yay"
+   install_pkg "NM TUI" "nmtui-go" "yay"
+   install_pkg "Aseprite" "aseprite" "yay"
+   install_pkg "Zen" "zen-browser-bin" "yay"
+fi
 
-#if is_installed "labwc"; then
-#    if is_installed "aseprite"; then
-#        sudo sed -i 's/Exec=aseprite %F/Exec=labwc -s aseprite %F/' /usr/share/applications/aseprite.desktop 
-#        success "Updated Aseprite desktop entry for Labwc"
-#        error "Failed to update Aseprite desktop entry for Labwc"
-#    else
-#        warn "Aseprite not installed, skipping Labwc desktop entry update"
-#    fi
-#fi
+if is_installed "labwc"; then
+   if is_installed "aseprite"; then
+       sudo sed -i 's/Exec=aseprite %F/Exec=labwc -s aseprite %F/' /usr/share/applications/aseprite.desktop 
+       success "Updated Aseprite desktop entry for Labwc"
+       error "Failed to update Aseprite desktop entry for Labwc"
+   else
+       warn "Aseprite not installed, skipping Labwc desktop entry update"
+   fi
+fi
 
 # Install Zen
 curl -fsSL https://github.com/zen-browser/updates-server/raw/refs/heads/main/install.sh | $SHELL
 sudo ln -s ~/.tarball-installations/zen/zen /usr/bin/zen
 
 # Install Claude
-curl -fsSL https://claude.ai/install.sh | bash
-echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc && source ~/.bashrc
-export ANTHROPIC_BASE_URL="http://localhost:8080"
-export ANTHROPIC_API_KEY="sk-no-key-required"
-export ANTHROPIC_AUTH_TOKEN="llama"
+# curl -fsSL https://claude.ai/install.sh | bash
+# echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc && source ~/.bashrc
+# export ANTHROPIC_BASE_URL="http://localhost:8080"
+# export ANTHROPIC_API_KEY="sk-no-key-required"
+# export ANTHROPIC_AUTH_TOKEN="llama"
 # also need to copy the json
 
 
 # Install Llama CPP
-curl -LsSf https://llama.app/install.sh | sh
+# curl -LsSf https://llama.app/install.sh | sh
 
 # Install aseprite
-sudo pacman -S gcc clang cmake ninja libx11 libxcursor libxi libxrandr mesa-libgl fontconfig libwebp unzip
-cd ~/
-mkdir GithubProjects
-cd GithubProjects
-git clone --recursive https://github.com/aseprite/aseprite.git
-cd aseprite
-git pull
-git submodule update --init --recursive
-./build.sh
-ln -s ~/GithubProjects/aseprite/build/bin/aseprite ~/.local/bin/aseprite
-cd ~/dots
-cp desktop-entries/aseprite.desktop ~/.local/share/applications
+# sudo pacman -S gcc clang cmake ninja libx11 libxcursor libxi libxrandr mesa-libgl fontconfig libwebp unzip
+# cd ~/
+# mkdir GithubProjects
+# cd GithubProjects
+# git clone --recursive https://github.com/aseprite/aseprite.git
+# cd aseprite
+# git pull
+# git submodule update --init --recursive
+# ./build.sh
+# ln -s ~/GithubProjects/aseprite/build/bin/aseprite ~/.local/bin/aseprite
+# cd ~/dots
+# cp desktop-entries/aseprite.desktop ~/.local/share/applications
 
 # Hermes Agent
 #curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
